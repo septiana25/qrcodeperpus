@@ -1,0 +1,13 @@
+# Mengabaikan file Environment (SANGAT PENTING)
+.env
+
+# Mengabaikan file log (biasanya digenerate oleh server PHP/Apache)
+*.log
+error_log
+
+# Mengabaikan file sistem operasi (macOS & Windows)
+.DS_Store
+Thumbs.db
+
+# (Opsional) Mengabaikan folder vendor jika suatu saat Anda memakai Composer
+vendor/
