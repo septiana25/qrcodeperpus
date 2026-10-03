@@ -1,5 +1,11 @@
 RewriteEngine On
 
+# 1. KEAMANAN: Cegah akses langsung ke file .env dari browser
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
 # Hilangkan ekstensi .php dari URL
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
