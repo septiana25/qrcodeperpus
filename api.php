@@ -46,15 +46,15 @@ try {
         echo json_encode([
             'success' => true,
             'data' => [
-                'member_id' => $user['member_id'],
-                'member_name' => $user['member_name']
+                'nim' => $user['member_id'],
+                'nama' => $user['member_name']
             ]
         ]);
     } else {
         // Jika tidak ada atau masih pending
         echo json_encode([
             'success' => false,
-            'message' => 'Akses Ditolak: NIM tidak ditemukan atau status masih pending.'
+            'message' => 'Akses Ditolak: NIM tidak ditemukan atau status tidak aktif.'
         ]);
     }
 

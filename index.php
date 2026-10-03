@@ -176,7 +176,7 @@
                     <div class="form-group">
                         <label for="nim">Masukkan NIM Anda</label>
                         <!-- Validasi HTML (min, max, required) -->
-                        <input type="text" id="nim" placeholder="Contoh: 1234567890" maxlength="10" minlength="10" required autocomplete="off">
+                        <input type="text" id="nim" placeholder="Contoh: 2677111123" maxlength="10" minlength="10" required autocomplete="off">
                     </div>
                     <button type="submit" class="btn-primary" id="btn-submit">Generate QR Code</button>
                     <div id="error-msg"></div>
@@ -242,7 +242,7 @@
             .then(data => {
                 if (data.success) {
                     // Jika Sukses dari DB
-                    generateQRCode(data.data.member_id, data.data.member_name);
+                    generateQRCode(data.data.nim, data.data.nama);
                 } else {
                     // Jika Gagal (NIM tidak ada atau pending)
                     errorMsg.innerText = data.message;
@@ -260,19 +260,19 @@
         });
 
         // Fungsi Generate QR Code
-        function generateQRCode(member_id, member_name) {
+        function generateQRCode(nim, nama) {
             // Sembunyikan form, tampilkan area QR
             formSection.style.display = 'none';
             qrSection.style.display = 'block';
 
             // Tampilkan nama member
-            memberInfo.innerText = member_name;
+            memberInfo.innerText = nama;
 
             // Bersihkan canvas QR sebelumnya (jika ada)
             qrcodeCanvas.innerHTML = '';
 
-            // Kombinasi format: member_id_member_name
-            const qrTextContent = member_id + "_" + member_name;
+            // Kombinasi format: nim_nama
+            const qrTextContent = nim + "_" + nama;
 
             // Generate QR Code dengan ukuran kecil (150x150)
             new QRCode(qrcodeCanvas, {
