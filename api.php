@@ -50,7 +50,7 @@ $nim = isset($data['nim']) ? trim($data['nim']) : '';
 
 
 // 1. Validasi Sisi Server (PHP): Pastikan tepat 8 atau 12 karakter
-if (strlen($nim) !== 8 && strlen($nim) !== 12) {
+if (strlen($nim) < 8 || strlen($nim) > 12) {
     echo json_encode([
         'success' => false, 
         'message' => 'Validasi Server Gagal: NIM harus 8 atau 12 karakter!'

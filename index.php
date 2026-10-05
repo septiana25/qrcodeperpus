@@ -204,8 +204,9 @@
             const nimVal = nimInput.value.trim();
             errorMsg.innerText = '';
 
-            if (nimVal.length !== 8 && nimVal.length !== 12) {
-                errorMsg.innerText = 'NIM harus tepat 8 atau 12 karakter!';
+
+            if (nimVal.length < 8 || nimVal.length > 12) {
+                errorMsg.innerText = 'NIM  8 karakter maksimal 12 karakter!';
                 return;
             }
 
