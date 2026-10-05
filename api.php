@@ -48,11 +48,12 @@ $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
 $nim = isset($data['nim']) ? trim($data['nim']) : '';
 
-// 1. Validasi Sisi Server (PHP): Pastikan tepat 10 karakter
-if (strlen($nim) !== 10) {
+
+// 1. Validasi Sisi Server (PHP): Pastikan tepat 8 atau 12 karakter
+if (strlen($nim) !== 8 && strlen($nim) !== 12) {
     echo json_encode([
         'success' => false, 
-        'message' => 'Validasi Server Gagal: NIM harus 10 karakter!'
+        'message' => 'Validasi Server Gagal: NIM harus 8 atau 12 karakter!'
     ]);
     exit;
 }
